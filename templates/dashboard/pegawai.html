@@ -1,0 +1,50 @@
+{% extends 'partials/base.html' %}
+{% block title %}Pegawai{% endblock %}
+{% load crispy_forms_tags %}
+
+{% block content%}
+    <!--Table-->
+    <div class="container">
+        <div class="row my-4">
+            <div class="col-md-4">
+                <div class="border bg-white p-3">
+                    <h4>Tambah Pegawai</h4>
+                    <hr>
+                    <form method="POST">
+                        {% csrf_token %}
+                        {{ form|crispy }}
+                        <input class="btn btn-success btn-block" type="submit" value="Tambah pegawai">
+
+                    </form>
+                </div>
+            </div>
+            <div class="col-md-8">
+                <table class="table bg-white">
+                    <thead class="bg-info">
+                        <tr class="text-white">
+                            <th scope="col">NIP_NRK</th>
+                            <th scope="col">Nama_Pegawai</th>
+                            <th scope="col">Alamat</th>
+                            <th scope="col">Telp</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for item in items %}
+                        <tr>
+                            <td>{{ item.NIP_NRK }}</td>
+                            <td>{{ item.Nama_Pegawai }}</td>
+                            <td>{{ item.Alamat }}</td>
+                            <td>{{ item.Telp }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+
+
+
+    <!--End Table-->
+{% endblock %}

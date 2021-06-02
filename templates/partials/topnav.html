@@ -1,0 +1,82 @@
+    <!--Topside-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <div class="container" align=center>
+        <div class="row mt-4">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header bg-info text-white">
+                        Catatan
+                    </div>
+                    <div class="card-body">
+                        <marquee behavior="" direction="">
+                            <h3 class="my-4">Tugas Besar PBO</h3>
+                        </marquee>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-4" align=center>
+            <div class="col-md-12">
+                <div class="card" align=center>
+                    <div class="card-header bg-info text-white">
+                        Status Invetaris
+                    </div>
+                    <div class="card-body">
+                        <div class="row my-4">
+                            <div class="col-md-4 p-4">
+                                <a class="text-decoration-none text-dark" href="{% url 'dashboard-pegawai'%}">
+                                    <div class="card my-card shadow text-center p-3">
+                                        <h4><i class="fa fa-users"></i> Pegawai</h4>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-md-4 p-4">
+                                <a class="text-decoration-none text-dark" href="{% url 'dashboard-barang'%}">
+                                    <div class="card my-card shadow text-center p-3">
+                                        <h4><i class="fa fa-cubes"></i> Barang </h4>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-md-4 p-4">
+                                <a class="text-decoration-none text-dark" href="{% url 'dashboard-gedung'%}">
+                                    <div class="card my-card shadow text-center p-3">
+                                        <h4><i class="fa fa-building"></i> Gedung</h4>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-md-4 p-4">
+                                <a class="text-decoration-none text-dark" href="{% url 'dashboard-ruang'%}">
+                                    <div class="card my-card shadow text-center p-3">
+                                        <h4>Ruang <i class="fas fa-shipping-fast"></i></h4>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-md-4 p-4">
+                                <a class="text-decoration-none text-dark" href="{% url 'dashboard-peminjaman'%}">
+                                    <div class="card my-card shadow text-center p-3">
+                                        <h4>Peminjaman <i class="fas fa-shipping-fast"></i></h4>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-md-4 p-4">
+                                <a class="text-decoration-none text-dark" href="{% url 'dashboard-peminjamandetail'%}">
+                                    <div class="card my-card shadow text-center p-3">
+                                        <h4>Daftar Pinjam <i class="fas fa-shipping-fast"></i></h4>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-md-12 p-4" align=center>
+                                <a class="text-decoration-none text-dark" href="{% url 'dashboard-cetak-laporan'%}">
+                                    <div class="card my-card shadow text-center p-3">
+                                        <h4><i class="fa fa-print"></i> Cetak Laporan</h4>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+    <!--End Topside-->

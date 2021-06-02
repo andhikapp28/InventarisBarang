@@ -1,0 +1,63 @@
+{% extends 'partials/base.html' %}
+{% block title %}Barang{% endblock %}
+{% load crispy_forms_tags %}
+
+{% block content%}
+    <!--Table-->
+    <div class="container">
+        <div class="row my-4">
+            <div class="col-md-4">
+                <div class="border bg-white p-3">
+                    <h4>Tambah Barang</h4>
+                    <hr>
+                    <form method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        {{ form|crispy }}
+                        <p> File Yang Diterima adalah .png </p>
+                        <input class="btn btn-success btn-block" type="submit" value="Tambah Barang">
+
+                    </form>
+                </div>
+            </div>
+            <div class="col-md-8">
+                <table class="table bg-white">
+                    <thead class="bg-info">
+                        <tr class="text-white">
+                            <th scope="col">ID</th>
+                            <th scope="col">Kode Barang</th>
+                            <th scope="col">Nama Barang</th>
+                            <th scope="col">Merk</th>
+                            <th scope="col">Stok</th>
+                            <th scope="col">BAST</th>
+                            <th scope="col">Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for item in items %}
+                        <tr>
+                            <th scope="row">{{ item.ID }}</th>
+                            <td>{{ item.Kode_Barang }}</td>
+                            <td>{{ item.Nama_Barang }}</td>
+                            <td>{{ item.Merk }}</td>
+                            <td>{{ item.Stock }}</td>
+                            <td><a class="btn btn-info btn-sm" href="{% url 'dashboard-bast-barang' item.Kode_Barang %}">View</a> </td>
+                            <td>
+                            <div class="btn-group" role="group">
+                                <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Aksi
+                                 </button>
+                                <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                                     <a class="dropdown-item" href="{% url 'dashboard-update-barang' item.Kode_Barang %}">Edit</a>
+                                        <a class="dropdown-item" href="{% url 'dashboard-hapus-barang' item.Kode_Barang %}">Delete</a>
+                                </div>
+                            </div> 
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <!--End Table-->
+{% endblock %}

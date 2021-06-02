@@ -1,0 +1,22 @@
+{% extends 'partials/base.html' %}
+{% block title %} View Bast {% endblock %}
+
+{% block content %}
+<style>
+
+</style>
+<div class="container" align=center>
+<div class="row my-4">
+    <div class="col-md-12">
+        <div class="border p-3 bg-white">
+            <!--{{ item.url }}-->
+                    ​<picture>
+                        <source srcset="{{ item.url }}" type="image/svg+xml">
+                        <img src="{{ item.url }}" class="img-fluid" alt="" >
+                    </picture>
+        </div>
+        <a class="btn btn-secondary" href="{% url 'dashboard-barang' %}">Kembali</a>
+    </div>
+</div>
+</div>
+{% endblock %}

@@ -1,0 +1,80 @@
+{% extends 'partials/base.html' %}
+{% block title %} Cetak Laporan {% endblock %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<html>
+<body>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!--Table-->
+    <div class="container">
+        <div class="row my-4">
+            <div class="col-md-12">
+            <div class="border bg-white p-1">
+                    <h4>Peminjaman Detail</h4>
+                    <hr>
+                    <form method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        {{ form|crispy }}
+                        <input class="btn btn-success btn-block" type="submit" value="Cari">
+                    </form>
+                </div>
+                </div>
+            <div class="col-md-12 p-3" id="laporan">
+                <table class="table bg-white">
+                    <thead class="bg-info">
+                        <tr class="text-white">
+                            <th scope="col">No Peminjaman</th>
+                            <th scope="col">Kode Barang</th>
+                            <th scope="col">Kondisi</th>
+                            <th scope="col">Jumlah</th>
+                            <th scope="col">Gedung</th>
+                            <th scope="col">Ruang</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                     {% for item in items %}
+                        <tr>
+                            <th scope="row">{{ item.No_Peminjaman }}</th>
+                            <td>{{ item.Kode_Barang }}</td>
+                            <td>{{ item.Kondisi }}</td>
+                            <td>{{ item.Jumlah }}</td>
+                            <td>{{ item.Gedung }}</td>
+                            <td>{{ item.Ruang }}</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-md-12">
+            <div class="text-right">
+                    <button type="button" class="btn btn-primary" id="download"><i class="fa fa-print"></i>Cetak Laporan</button>
+                     <!--<a class="btn btn-info" href="{% url 'pdf_view' %}">Cetak Laporan</a>-->
+            </div></div>
+        </div>
+    </div>
+<script src="https://code.jquery.com/jquery-1.12.3.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/0.9.0rc1/jspdf.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.js"></script>
+<script type="text/javascript">
+window.onload = function () {
+    document.getElementById("download")
+        .addEventListener("click", () => {
+            const laporan = this.document.getElementById("laporan");
+            console.log(laporan);
+            console.log(window);
+            var opt = {
+                margin: 0,
+                filename: 'Laporan.pdf',
+                image: { type: 'jpeg', quality: 0.98 },
+                html2canvas: { scale: 2 },
+                jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
+            };
+            html2pdf().from(laporan).set(opt).save();
+        })
+}
+</script>
+</body>
+</html>
+<!--End Table-->
+{% endblock %}

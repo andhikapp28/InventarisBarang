@@ -1,0 +1,60 @@
+{% extends 'partials/base.html' %}
+{% block title %}Gedung{% endblock %}
+{% load crispy_forms_tags %}
+
+{% block content%}
+    <!--Table-->
+    <div class="container">
+        <div class="row my-4">
+            <div class="col-md-4">
+                <div class="border bg-white p-3">
+                    <h4>Tambah Gedung</h4>
+                    <hr>
+                    <form method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        {{ form|crispy }}
+                        <input class="btn btn-success btn-block" type="submit" value="Tambah Gedung">
+
+                    </form>
+                </div>
+            </div>
+            <div class="col-md-8">
+                <table class="table bg-white">
+                    <thead class="bg-info">
+                        <tr class="text-white">
+                            <th scope="col">ID</th>
+                            <th scope="col">Gedung</th>
+                            <th scope="col">MG Gedung</th>
+                            <th scope="col">Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                     {% for item in items %}
+                        <tr>
+                            <th scope="row">{{ item.ID }}</th>
+                            <td>{{ item.Nama_Gedung }}</td>
+                            <td>{{ item.MG}}</td>
+                            <td>
+                            <div class="btn-group" role="group">
+                                <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Aksi
+                                 </button>
+                                <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                                     <a class="dropdown-item" href="{% url 'dashboard-update-gedung' item.Nama_Gedung %}">Edit</a>
+                                        <a class="dropdown-item" href="{% url 'dashboard-hapus-gedung' item.Nama_Gedung %}">Delete</a>
+                                </div>
+                            </div> 
+                            </td>
+                        </tr>
+                     {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+
+
+
+    <!--End Table-->
+{% endblock %}
