@@ -5,8 +5,15 @@ Tugas besar PBO membuat inventaris barang lingkungan ITERA
 - Bootstrap
 
 ## Fungsi
-- X
-- X
+- Login dan Register
+- Melihat/Mengedit Profil Diri Sendiri
+- Pegawai
+- Menambah Barang (Inventaris)
+- Melihat Daftar Peminjaman Yang Telah Dilakukan
+- Menambah Ruang Pada Suatu Gedung
+- Melihat dan Mengedit Daftar Peminjaman Yang Telah Dilakukan
+- Mencetak Laporan
+
 
 ## Aplikasi
 - Visual Studio Code atau source code editor lainnya
