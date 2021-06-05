@@ -40,7 +40,7 @@ Sebelum install django dan pluginnya pastikan bahwa pip dan pillow-nya berada pa
 | Plugin | Command |
 | ------ | ------ |
 |Install/Upgrage Pip | python -m pip install --upgrade pip
-|Install/Upgrade Pillow | python -m pip install Pillow
+|Install/Upgrade Pillow | python -m pip install --upgrade Pillow
 
 - Install Django pada sourcecode-editor
 ```sh
