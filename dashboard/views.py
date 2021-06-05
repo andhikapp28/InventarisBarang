@@ -6,12 +6,6 @@ from .forms import *
 from .filter import *
 from django.views.generic import View
 
-### Untuk Cetak
-from io import BytesIO
-from django.template.loader import get_template
-from django.views import View
-from xhtml2pdf import pisa
-
 # Create your views here.
 
 @login_required
@@ -298,24 +292,3 @@ def cetak_laporan(request):
         'myFilter' : myFilter,
     }
     return render(request, 'dashboard/cetak_laporan.html', context)
-
-def render_to_pdf(template_src, context_dict={}):
-	template = get_template(template_src)
-	html  = template.render(context_dict)
-	result = BytesIO()
-	pdf = pisa.pisaDocument(BytesIO(html.encode("ISO-8859-1")), result)
-	if not pdf.err:
-		return HttpResponse(result.getvalue(), content_type='application/pdf')
-	return None
-
-class ViewPDF(View):
-    def get(self, request, *args, **kwargs):
-        items = PeminjamanDetail.objects.all()
-        myFilter = CariBarang(request.POST, queryset=items)
-        items = myFilter.qs
-        context = {
-        'items' : items,
-        'myFilter' : myFilter,
-    }
-        pdf = render_to_pdf('dashboard/cetak_laporan.html', context)
-        return HttpResponse(pdf, content_type='application/pdf')

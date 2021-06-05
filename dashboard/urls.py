@@ -34,7 +34,6 @@ urlpatterns = [
     path('peminjamandetail/update/<str:pk>/', views.update_peminjamandetail, name='dashboard-update-peminjamandetail'),
 
     path('laporan/', views.cetak_laporan, name='dashboard-cetak-laporan'),
-    path('pdf_view/', views.ViewPDF.as_view(), name="pdf_view"),
 
 
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
