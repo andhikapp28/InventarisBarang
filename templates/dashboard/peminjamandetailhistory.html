@@ -1,6 +1,6 @@
 {% extends 'partials/base.html' %}
 {% block title %}Peminjaman Detail History{% endblock %}
-
+{% load crispy_forms_tags %}
 {% block content %}
     <!--Table-->
     <div class="container">
@@ -8,6 +8,13 @@
             <div class="col-md-12">
             <div class="border bg-white p-3" align=center>
                     <h4>History Peminjaman Detail</h4>
+            <div class="col-md-12" align=left>
+            <form method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        {{ form|crispy }}
+                        <input class="btn btn-success btn-block" type="submit" value="Cari">
+            </form>
+            </div>
             <div class="col-md-12">
                 <table class="table bg-white">
                     <thead class="bg-info">

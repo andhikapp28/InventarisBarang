@@ -47,3 +47,8 @@ class CariPeminjamanForm(forms.ModelForm):
     class Meta:
         model = Peminjaman
         fields = ['No_Peminjaman']
+
+class CariPeminjamanHistoryForm(forms.ModelForm):
+    class Meta:
+        model = PeminjamanDetailHistory
+        fields = ['No_Peminjaman']

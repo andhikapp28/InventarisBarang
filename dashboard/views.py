@@ -256,8 +256,12 @@ def peminjamandetail(request):
 @login_required
 def peminjamandetailhistory(request):
     items = PeminjamanDetailHistory.objects.all()
+    form = CariPeminjamanHistoryForm(request.POST or None)
+    myFilter = CariPeminjamanHistory(request.POST, queryset=items)
+    items = myFilter.qs
     context = {
         'items' : items,
+        'form' : form,
     }
     return render(request, 'dashboard/peminjamandetailhistory.html', context)
 

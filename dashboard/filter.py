@@ -15,3 +15,8 @@ class CariPeminjaman(django_filters.FilterSet):
     class Meta:
         model = Peminjaman
         fields = ['No_Peminjaman']
+
+class CariPeminjamanHistory(django_filters.FilterSet):
+    class Meta:
+        model = PeminjamanDetailHistory
+        fields = ['No_Peminjaman']
