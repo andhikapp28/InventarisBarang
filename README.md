@@ -1,15 +1,55 @@
-A simple inventory management system built with Django. Users can add stock item and generate bills. All data is stored in database and are rendered in real time
+# Tugas Besar PBO 2021
 
-To run project, run the following commands in the project's directory to create the database. When running the software for the first time, it is necessary to run each command for each app in the project
+Tugas besar PBO membuat inventaris barang lingkungan ITERA
+- Django
+- Bootstrap
 
-After the first time, the following can be run to migrate model changes in any app
+## Fungsi
+- X
+- X
 
+## Aplikasi
+- Visual Studio Code atau source code editor lainnya
+
+## Requirement
+- Django 3.0.8
+- Web Browser
+
+## plugins
+- Django-import-export 2.5.0
+- Django-filter 2.4.0
+- Django-crispy-forms 1.11.2
+- Django-datetime-widget 2 0.9.5
+
+## Installasi
+- Buka folder TubesPBO dari sourcecode-editor
+- Install Django pada sourcecode-editor
+```sh
+python -m pip install Django
+```
+- install seluruh plugins
+
+| Plugin | Command |
+| ------ | ------ |
+| Django-import-export  | pip install django-import-export |
+| Django-filter | pip install django-filter |
+| Django-crispy-forms | pip install django-crispy-forms |
+| Django-datetime-widget | pip install django-datetime-widget |
+
+- Migrasi seluruh model/database
+```sh
 python manage.py makemigrations
 python manage.py migrate
-
-Use the following command to run the server
-
-python manage.py runserver
-Use the following command to create an admin user
-
+```
+- Membuat superuser (admin)
+```sh
 python manage.py createsuperuser
+```
+
+- Jalankan server django
+```sh
+python manage.py runserver
+```
+
+
+
