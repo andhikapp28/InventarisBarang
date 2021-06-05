@@ -27,8 +27,7 @@ Tugas besar PBO membuat inventaris barang lingkungan ITERA
 - Django-import-export 2.5.0
 - Django-filter 2.4.0
 - Django-crispy-forms 1.11.2
-- Django-datetime-widget 2 0.9.5
-- 
+- Django-datetime-widget2 0.9.5
 
 ## Installasi
 - Buka folder TubesPBO dari sourcecode-editor
@@ -43,7 +42,7 @@ python -m pip install Django
 | Django-import-export  | pip install django-import-export |
 | Django-filter | pip install django-filter |
 | Django-crispy-forms | pip install django-crispy-forms |
-| Django-datetime-widget | pip install django-datetime-widget |
+| Django-datetime-widget | pip install django-datetime-widget2 |
 | django-utils-six | pip install django-utils-six |
 
 - Migrasi seluruh model/database
@@ -51,6 +50,15 @@ python -m pip install Django
 python manage.py makemigrations
 python manage.py migrate
 ```
+## tambahan
+Jika terjadi error saat migrasi model/database dapat melakukan install tambahan yaitu
+| Plugin | Command |
+| ------ | ------ |
+|Install/Upgrage Pip | python -m pip install --upgrade pip
+|Install/Upgrade Pillow | python3-m pip install Pillow
+python3 -m pip install --upgrade Pillow
+
+
 - Membuat superuser (admin)
 ```sh
 python manage.py createsuperuser
