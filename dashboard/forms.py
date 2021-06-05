@@ -1,5 +1,5 @@
 from django import forms
-from .models import Barang, Pegawai, Gedung, Ruang, Peminjaman, PeminjamanDetail
+from .models import *
 from datetimewidget.widgets import DateTimeWidget
 
 class BarangForm(forms.ModelForm):
@@ -31,6 +31,11 @@ class PeminjamanForm(forms.ModelForm):
 class PeminjamanDetailForm(forms.ModelForm):
     class Meta:
         model = PeminjamanDetail
+        fields = ['No_Peminjaman', 'Kode_Barang', 'Kondisi', 'Jumlah', 'Gedung', 'Ruang']
+
+class PeminjamanDetailHistoryForm(forms.ModelForm):
+    class Meta:
+        model = PeminjamanDetailHistory
         fields = ['No_Peminjaman', 'Kode_Barang', 'Kondisi', 'Jumlah', 'Gedung', 'Ruang']
 
 class CetakLaporanForm(forms.ModelForm):

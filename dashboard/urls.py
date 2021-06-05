@@ -9,9 +9,12 @@ urlpatterns = [
     path('pegawai/', views.pegawai, name='dashboard-pegawai'),
     
     path('barang/', views.barang, name='dashboard-barang'),
+    path('barang-staff/', views.barang_staff, name='dashboard-barang-staff'),
+    path('barang-staff/bast/<str:pk>/', views.BAST_BarangStaff, name='dashboard-bast-barang-staff'),
     path('barang/hapus/<str:pk>/', views.hapus_barang, name='dashboard-hapus-barang'),
     path('barang/update/<str:pk>/', views.update_barang, name='dashboard-update-barang'),
     path('barang/bast/<str:pk>/', views.BAST_Barang, name='dashboard-bast-barang'),
+    
     
     path('gedung/', views.gedung, name='dashboard-gedung'),
     path('gedung/hapus/<str:pk>/', views.hapus_gedung, name='dashboard-hapus-gedung'),
@@ -27,6 +30,7 @@ urlpatterns = [
     path('peminjaman/bast/<str:pk>/', views.BAST_Peminjaman, name='dashboard-bast-peminjaman'),
     
     path('peminjamandetail/', views.peminjamandetail, name='dashboard-peminjamandetail'),
+    path('peminjamandetailhistory/', views.peminjamandetailhistory, name='dashboard-peminjamandetailhistory'),
     path('peminjamandetail/update/<str:pk>/', views.update_peminjamandetail, name='dashboard-update-peminjamandetail'),
 
     path('laporan/', views.cetak_laporan, name='dashboard-cetak-laporan'),

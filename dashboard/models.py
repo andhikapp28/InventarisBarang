@@ -62,3 +62,15 @@ class PeminjamanDetail(models.Model):
     def __str__(self):
         return f'{self.No_Peminjaman}'
 
+class PeminjamanDetailHistory(models.Model):
+    No_Peminjaman = models.CharField(max_length=10 ,null=True, blank=True)
+    Kode_Barang = models.CharField(max_length=10, null=True, blank=True)
+    Kondisi = models.CharField(max_length=10, null=True)
+    Jumlah = models.PositiveIntegerField()
+    Gedung = models.CharField(max_length=10 ,null=True, blank=True)
+    Ruang = models.CharField(max_length=10, null=True, blank=True,)
+    tgl_perubahan = models.DateTimeField(auto_now_add=True)
+    
+    def __str__(self):
+        return f'{self.No_Peminjaman}'
+

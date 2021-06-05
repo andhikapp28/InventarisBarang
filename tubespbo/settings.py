@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'crispy_forms',
     'datetimewidget',
     'django_filters',
+    'import_export',
 ]
 
 MIDDLEWARE = [
@@ -112,7 +113,7 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Jakarta'
 
 USE_I18N = True
 
@@ -139,3 +140,7 @@ MEDIA_URL = '/media/'
 LOGIN_REDIRECT_URL = 'dashboard-index'
 
 LOGIN_URL = 'user-login'
+
+IMPORT_EXPORT_IMPORT_PERMISSION_CODE = 'delete' 
+IMPORT_EXPORT_EXPORT_PERMISSION_CODE = 'delete'
+IMPORT_EXPORT_USE_TRANSACTION = True

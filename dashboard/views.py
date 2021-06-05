@@ -1,9 +1,9 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
-from .models import Barang, Pegawai, Gedung, Ruang, Peminjaman, PeminjamanDetail
-from .forms import BarangForm, PegawaiForm, PeminjamanDetailForm, PeminjamanForm, GedungForm, RuangForm, CetakLaporanForm, CariPeminjamanForm
-from .filter import CariBarang, CariRuang, CariPeminjaman
+from .models import *
+from .forms import *
+from .filter import *
 from django.views.generic import View
 
 ### Untuk Cetak
@@ -57,6 +57,22 @@ def barang(request):
 
     return render(request, 'dashboard/barang.html', context)
 
+@login_required
+def barang_staff(request):
+    items = Barang.objects.all()
+    if request.method == 'POST':
+        form = BarangForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('dashboard-barang-staff')
+    else:
+        form = BarangForm()
+    context = {
+        'items' : items,
+        'form' : form,
+    }
+
+    return render(request, 'dashboard/barang_staff.html', context)
 def hapus_barang(request, pk):
     item = Barang.objects.get(Kode_Barang=pk)
     if request.method == 'POST':
@@ -83,7 +99,14 @@ def BAST_Barang(request, pk):
     context = {
         'item' : item.BAST
     }
-    return render(request, 'dashboard/BAST_Barang.html', context) 
+    return render(request, 'dashboard/BAST_Barang.html', context)
+
+def BAST_BarangStaff(request, pk):
+    item = Barang.objects.get(Kode_Barang=pk)
+    context = {
+        'item' : item.BAST
+    }
+    return render(request, 'dashboard/BAST_BarangStaff.html', context)
 
 ################## GEDUNG #######################
 @login_required
@@ -222,8 +245,11 @@ def peminjamandetail(request):
     items = PeminjamanDetail.objects.all()
     if request.method == 'POST':
         form = PeminjamanDetailForm(request.POST, request.FILES)
+        history = PeminjamanDetailHistoryForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
+            history.form=form
+            history.save()
             return redirect('dashboard-peminjamandetail')
     else:
         form = PeminjamanDetailForm()
@@ -233,12 +259,23 @@ def peminjamandetail(request):
     }
     return render(request, 'dashboard/peminjamandetail.html', context)
 
+@login_required
+def peminjamandetailhistory(request):
+    items = PeminjamanDetailHistory.objects.all()
+    context = {
+        'items' : items,
+    }
+    return render(request, 'dashboard/peminjamandetailhistory.html', context)
+
 def update_peminjamandetail(request, pk):
     item = PeminjamanDetail.objects.get(No_Peminjaman=pk)
     if request.method=='POST' :
         form = PeminjamanDetailForm(request.POST, instance=item)
+        history = PeminjamanDetailHistoryForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
+            history.form=form
+            history.save()
             return redirect('dashboard-peminjamandetail')
     else:
         form = PeminjamanDetailForm(instance=item)

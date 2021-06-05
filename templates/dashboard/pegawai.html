@@ -3,6 +3,16 @@
 {% load crispy_forms_tags %}
 
 {% block content%}
+<html>
+<head>
+<!-- Jquery -->
+<script type="text/javascript" language="javascript" src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+<!-- Jquery DataTables -->
+<script type="text/javascript" language="javascript" src="http:////cdn.datatables.net/1.10.4/js/jquery.dataTables.min.js"></script>
+<!-- Bootstrap dataTables Javascript -->
+<script type="text/javascript" language="javascript" src="http://cdn.datatables.net/plug-ins/9dcbecd42ad/integration/bootstrap/3/dataTables.bootstrap.js"></script>
+</head>
+<body>
     <!--Table-->
     <div class="container">
         <div class="row my-4">
@@ -19,7 +29,7 @@
                 </div>
             </div>
             <div class="col-md-8">
-                <table class="table bg-white">
+                <table id="tabel" class="table bg-white" >
                     <thead class="bg-info">
                         <tr class="text-white">
                             <th scope="col">NIP_NRK</th>
@@ -41,10 +51,12 @@
                 </table>
             </div>
         </div>
-
-    </div>
-
-
-
+<script type="text/javascript" charset="utf-8">
+    $(document).ready(function() {
+	$('.table-paginate').dataTable();
+ } );
+</script>
+</body>
+</html>
     <!--End Table-->
 {% endblock %}

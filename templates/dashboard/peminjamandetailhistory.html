@@ -1,0 +1,43 @@
+{% extends 'partials/base.html' %}
+{% block title %}Peminjaman Detail History{% endblock %}
+
+{% block content %}
+    <!--Table-->
+    <div class="container">
+        <div class="row my-4">
+            <div class="col-md-12">
+            <div class="border bg-white p-3" align=center>
+                    <h4>History Peminjaman Detail</h4>
+            <div class="col-md-12">
+                <table class="table bg-white">
+                    <thead class="bg-info">
+                        <tr class="text-white">
+                            <th scope="col">No Peminjaman</th>
+                            <th scope="col">Kode Barang</th>
+                            <th scope="col">Kondisi</th>
+                            <th scope="col">Jumlah</th>
+                            <th scope="col">Gedung</th>
+                            <th scope="col">Ruang</th>
+                            <th scope="col">Tanggal Perubahan</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                     {% for item in items %}
+                        <tr>
+                            <th scope="row">{{ item.No_Peminjaman }}</th>
+                            <td>{{ item.Kode_Barang }}</td>
+                            <td>{{ item.Kondisi }}</td>
+                            <td>{{ item.Jumlah }}</td>
+                            <td>{{ item.Gedung }}</td>
+                            <td>{{ item.Ruang }}</td>
+                            <td>{{ item.tgl_perubahan }}</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            </div>
+        </div>
+    </div>
+    <!--End Table-->
+{% endblock %}
