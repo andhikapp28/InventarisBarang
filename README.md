@@ -35,7 +35,7 @@ Tugas besar PBO membuat inventaris barang lingkungan ITERA
 ## Installasi
 - Buka folder TubesPBO dari sourcecode-editor
 
-## tambahan
+## Catatan
 Sebelum install django dan pluginnya pastikan bahwa pip dan pillow-nya berada pada versi terbaru
 | Plugin | Command |
 | ------ | ------ |
@@ -48,12 +48,13 @@ python -m pip install Django
 ```
 
 - install seluruh plugins
+
 | Plugin | Command |
 | ------ | ------ |
 | Django-import-export  | pip install django-import-export |
 | Django-filter | pip install django-filter |
 | Django-crispy-forms | pip install django-crispy-forms |
-| Django-datetime-widget | pip install django-datetime-widget2 |
+| Django-datetime-widget2 | pip install django-datetime-widget2 |
 | django-utils-six | pip install django-utils-six |
 
 - Migrasi seluruh model/database
