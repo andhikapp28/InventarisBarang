@@ -19,6 +19,7 @@ Tugas besar PBO membuat inventaris barang lingkungan ITERA
 - Visual Studio Code atau source code editor lainnya
 
 ## Requirement
+- pyhton 3
 - Django 3.0.8
 - Web Browser
 
@@ -42,6 +43,7 @@ python -m pip install Django
 | Django-filter | pip install django-filter |
 | Django-crispy-forms | pip install django-crispy-forms |
 | Django-datetime-widget | pip install django-datetime-widget |
+| django-utils-six | pip install django-utils-six |
 
 - Migrasi seluruh model/database
 ```sh
