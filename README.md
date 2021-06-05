@@ -21,22 +21,33 @@ Tugas besar PBO membuat inventaris barang lingkungan ITERA
 ## Requirement
 - pyhton 3
 - Django 3.0.8
+- pip 21.1.1
+- Pillow 6.2.1 - 6.2.2 keatas
 - Web Browser
 
-## plugins
+## Plugins
 - Django-import-export 2.5.0
 - Django-filter 2.4.0
 - Django-crispy-forms 1.11.2
 - Django-datetime-widget2 0.9.5
+- Django-utils-six
 
 ## Installasi
 - Buka folder TubesPBO dari sourcecode-editor
+
+## tambahan
+Sebelum install django dan pluginnya pastikan bahwa pip dan pillow-nya berada pada versi terbaru
+| Plugin | Command |
+| ------ | ------ |
+|Install/Upgrage Pip | python -m pip install --upgrade pip
+|Install/Upgrade Pillow | python -m pip install Pillow
+
 - Install Django pada sourcecode-editor
 ```sh
 python -m pip install Django
 ```
-- install seluruh plugins
 
+- install seluruh plugins
 | Plugin | Command |
 | ------ | ------ |
 | Django-import-export  | pip install django-import-export |
@@ -50,24 +61,13 @@ python -m pip install Django
 python manage.py makemigrations
 python manage.py migrate
 ```
-## tambahan
-Jika terjadi error saat migrasi model/database dapat melakukan install tambahan yaitu
-| Plugin | Command |
-| ------ | ------ |
-|Install/Upgrage Pip | python -m pip install --upgrade pip
-|Install/Upgrade Pillow | python3-m pip install Pillow
-python3 -m pip install --upgrade Pillow
-
 
 - Membuat superuser (admin)
 ```sh
 python manage.py createsuperuser
 ```
 
-- Jalankan server django
+- Jalankan Server Django
 ```sh
 python manage.py runserver
 ```
-
-
-
