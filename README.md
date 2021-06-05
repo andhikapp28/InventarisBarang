@@ -28,6 +28,7 @@ Tugas besar PBO membuat inventaris barang lingkungan ITERA
 - Django-filter 2.4.0
 - Django-crispy-forms 1.11.2
 - Django-datetime-widget 2 0.9.5
+- 
 
 ## Installasi
 - Buka folder TubesPBO dari sourcecode-editor
