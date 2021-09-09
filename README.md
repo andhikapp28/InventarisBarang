@@ -1,5 +1,4 @@
-# Tugas Besar PBO 2021
-Tugas besar PBO membuat inventaris barang lingkungan ITERA
+# Inventaris Barang
 - Django
 - Bootstrap
 
@@ -12,7 +11,7 @@ Tugas besar PBO membuat inventaris barang lingkungan ITERA
 - Menambah Ruang Pada Suatu Gedung
 - Melihat dan Mengedit Daftar Peminjaman Yang Telah Dilakukan
 - Mencetak Laporan
-
+- History
 
 ## Aplikasi
 - Visual Studio Code atau source code editor lainnya
